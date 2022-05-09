@@ -1,0 +1,116 @@
+.box .select {
+  color: #ffff;
+  background: #1e1e2c;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 5px; }
+
+select::-ms-expand {
+  display: none; }
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .form .container {
+    width: 100%;
+    padding: 20px; }
+    .form .container h2 {
+      color: white;
+      font-size: 3em;
+      text-align: center;
+      margin-bottom: 30px; }
+    .form .container .wrapperform {
+      color: #ffff;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 49% 49%;
+      grid-column-gap: 2%; }
+      .form .container .wrapperform .box {
+        color: #ffff;
+        width: 100%;
+        position: relative;
+        padding: 20px 0px; }
+        .form .container .wrapperform .box input {
+          color: #ffff;
+          width: 100%;
+          font-size: 20px;
+          background: transparent;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #28cdf5;
+          transition: 0.5s linear; }
+        .form .container .wrapperform .box #date {
+          cursor: pointer; }
+        .form .container .wrapperform .box input:focus {
+          color: black;
+          padding: 7px 10px;
+          background: #ffff;
+          margin-top: 10px; }
+        .form .container .wrapperform .box input:valid {
+          padding: 7px 10px;
+          margin-top: 10px; }
+        .form .container .wrapperform .box label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: white;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 20px 0px;
+          transition: 0.5s linear; }
+        .form .container .wrapperform .box input:focus ~ label {
+          padding: 0; }
+        .form .container .wrapperform .box input:valid ~ label {
+          padding: 0; }
+        .form .container .wrapperform .box textarea {
+          color: #ffff;
+          width: 100%;
+          font-size: 20px;
+          background: transparent;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #28cdf5;
+          transition: 0.5s linear; }
+        .form .container .wrapperform .box :focus {
+          color: black;
+          padding: 20px 10px;
+          background: #ffff;
+          margin-top: 10px; }
+        .form .container .wrapperform .box :valid {
+          padding: 20px 10px;
+          margin-top: 10px; }
+        .form .container .wrapperform .box textarea:focus ~ label {
+          padding: 0; }
+        .form .container .wrapperform .box textarea:valid ~ label {
+          padding: 0; }
+    .form .container .textarea {
+      display: grid;
+      grid-template-columns: 100%; }
+    .form .container .dislodged-border {
+      background: #FB3FDE;
+      background: linear-gradient(0deg, #ba54f5 0, #e14eca 100%);
+      border-radius: 10px;
+      color: #fff;
+      display: inline-block;
+      font-family: sans-serif;
+      padding: 15px 20px 14px;
+      position: relative;
+      text-decoration: none; }
+    .form .container :before {
+      box-sizing: border-box;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      top: 5px;
+      left: 3px;
+      z-index: -1; }
+      .off-canvas-sidebar .nav li.active>a:not([data-toggle=collapse]):before, .sidebar .nav li.active>a:not([data-toggle=collapse]):before
+      {
+        display: none;
+      }

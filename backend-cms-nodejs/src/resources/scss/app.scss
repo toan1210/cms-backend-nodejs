@@ -1,0 +1,153 @@
+@import 'variables';
+.box .select
+{
+    color: #ffff;
+    background: #1e1e2c;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+select::-ms-expand{
+    display: none;
+}
+.form
+{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container
+    {
+        width: 100%;
+        padding: 20px;
+        h2 
+        {
+            color: white;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .wrapperform
+        {
+            color: #ffff;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 49% 49%;
+            grid-column-gap: 2%;
+            .box
+            {
+                color: #ffff;
+                width: 100%;
+                position: relative;
+                padding: 20px 0px;
+                input 
+                {
+                    color: #ffff;
+                    width: 100%;
+                    font-size: 20px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(40, 205, 245);
+                    transition: 0.5s linear;
+                }
+                #date
+                {
+                    cursor: pointer;
+                }
+                input:focus
+                {
+                    color: black;
+                    padding: 7px 10px;
+                    background: #ffff;
+                    margin-top: 10px;
+                }
+                input:valid
+                {
+                    padding: 7px 10px;
+                    margin-top: 10px;
+                }
+                label
+                {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: white;
+                    font-size: 15px;
+                    font-weight: bold;
+                    padding: 20px 0px;
+                    transition: 0.5s linear;
+                }
+                input:focus ~ label
+                {
+                   padding: 0;
+                }
+                input:valid ~ label
+                {
+                   padding: 0;
+                }
+                textarea
+                {
+                    color: #ffff;
+                    width: 100%;
+                    font-size: 20px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(40, 205, 245);
+                    transition: 0.5s linear;
+                }
+                :focus
+                {
+                    color: black;
+                    padding: 20px 10px;
+                    background: #ffff;
+                    margin-top: 10px;
+                }
+                :valid
+                {
+                    padding: 20px 10px;
+                    margin-top: 10px;
+                }
+                textarea:focus ~ label
+                {
+                    padding: 0;
+                }
+                textarea:valid ~ label
+                {
+                    padding: 0;
+                }
+            }
+        }
+        .textarea
+        {   
+            display: grid;
+            grid-template-columns: 100%;
+        }
+        .dislodged-border
+        {
+            background: #FB3FDE;background: linear-gradient(0deg,#ba54f5 0,#e14eca 100%);
+            border-radius: 10px;
+            color: #fff;
+        display: inline-block;
+        font-family: sans-serif;
+        padding: 15px 20px 14px;
+        position: relative;
+        text-decoration: none;
+        }
+        :before {
+            box-sizing: border-box;
+            content: "";
+            display: block;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            top: 5px;
+            left: 3px;
+            z-index: -1;
+        }
+    }
+}
+

@@ -1,0 +1,62 @@
+<div class="form">
+<div class="container">
+    <h2>Thêm Bài Mới</h2>
+    <form method="POST" action="/story/add" enctype="multipart/form-data">
+        <div class="wrapperform">
+               <div class="box">
+                <input type="text" name="author" required id="author">
+                <label for="author">Tác Giả</label>
+             </div>
+        </div>
+
+        <div class="wrapperform">
+          {{!-- <div class="box">
+              <select class="select" name="status" required>
+                  <option selected class="selected" value="false">Chọn Trạng Thái</option>
+                  <option value="true">Nổi Bật</option>
+                  <option value="false">Không Nổi Bật</option>
+              </select>
+            </div> --}}
+            <div class="box">
+                <input type="date" value=" - -" name="date" id="date">
+                <label for="title">Ngày Đăng</label>
+             </div>
+         <div class="box">
+              <select class="select" name="category" required> 
+                  <option selected class="selected" value="toan">Chọn Thể Loại</option>
+                  <option value="toan">Minh Toàn</option>
+                  <option value="toan">Minh Toàn</option>
+                  <option value="toan">Minh Toàn</option>
+                  <option value="toan">Minh Toàna</option>
+                  <option value="toan">Minh Toàn</option>
+                  <option value="toan">Minh Toàn</option>
+                  <option value="toan">Minh Toàn</option>
+              </select>
+            </div>
+        </div>
+
+         <div class="wrapperform">
+            <div class="box">
+                <input type="text" name="title" required id="title">
+                <label for="title">Tiêu Đề</label>
+           </div>
+             <div class="box">
+                <input class="form-control form-control-sm" name="images" type="file">
+            </div>
+        </div>
+           <div class="wrapperform textarea">
+              <div class="box">
+                 <textarea name="sumary" id="sumary" rows="10" cols="80" required></textarea>
+                <label for="title">Tóm Tắt</label> 
+            </div>
+        </div>
+        <div class="wrapperform textarea">
+              <div class="box">
+                <textarea name="content" id="content" rows="10" cols="80" required></textarea>
+                <label for="title">Nội Dung</label>
+            </div>
+        </div>
+        <input type="submit" name="" value="Thêm Mới" class="dislodged-border">
+    </form>
+</div>
+</div>
