@@ -19,6 +19,7 @@ class TraditionalControllers {
           title:req.body.title,
           author:req.body.author,
           status:req.body.status,
+          sumary:req.body.sumary,
           category:req.body.category,
           date:req.body.date,
           images:req.file.filename,
@@ -75,20 +76,20 @@ class TraditionalControllers {
         .then(() =>  res.redirect('back'))
         .catch(next); 
     }
-    // api_traditional(req,res,next)
-    // {
-    //   Traditional.find({}, function (err, traditional) {
-    //        if(!err)
-    //        {
-    //            res.json(traditional);
-    //            return;
-    //        }
-    //        else
-    //        {
-    //         res.status(400).json({error: 'ERROR'});
-    //        }
-    //       });
-    // }
+    api_traditional(req,res,next)
+    {
+      Traditional.find({}, function (err, traditional) {
+           if(!err)
+           {
+               res.json(traditional);
+               return;
+           }
+           else
+           {
+            res.status(400).json({error: 'ERROR'});
+           }
+          });
+    }
     // api_traditionaldetail(req,res,next)
     // {
     //   console.log(req.params.id);

@@ -17,7 +17,7 @@ const TraditionalControllers = require('../app/controllers/traditionalController
 router.post("/add",upload.single('images'),TraditionalControllers.add);
 router.get("/create", TraditionalControllers.create);
 
-// router.get("/traditionalapi", TraditionalControllers.api_traditional);
+router.get("/traditionalapi", TraditionalControllers.api_traditional);
 // router.get('/:id',TraditionalControllers.api_traditionaldetail);
 router.get('/:id/edit',TraditionalControllers.edit);
 router.put('/:id',TraditionalControllers.update);
