@@ -4,7 +4,6 @@ module.exports.CheckLogin = async function (req, res, next) {
   try {
     if (!req.cookies || !req.cookies.token) {
       res.redirect("/");
-      //    return res.render('/login/login/login');
     }
     var decoded = jwt.verify(req.cookies.token, "mk");
     if (!decoded._id) {
@@ -18,6 +17,7 @@ module.exports.CheckLogin = async function (req, res, next) {
     req.user = user;
     next();
   } catch (error) {
+    res.redirect("/");
     next();
   }
 };

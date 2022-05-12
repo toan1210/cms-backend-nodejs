@@ -23,6 +23,12 @@ router.put("/:id", AdminControllers.update);
 //Phần Xóa
 router.delete("/:id", AdminControllers.delete);
 
+router.post(
+  "/updateroles",
+  auth.CheckLogin,
+  auth.restrictTo("admin"),
+  AdminControllers.updateRoles
+);
 router.get(
   "/",
   auth.CheckLogin,
