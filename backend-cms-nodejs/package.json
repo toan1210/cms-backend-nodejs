@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "nodejs",
   "main": "src/index.js",
+  "start": "nodemon server.js",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
@@ -17,6 +18,7 @@
     "dayjs": "^1.11.2",
     "express": "^4.17.3",
     "express-handlebars": "^5.1.0",
+    "express-load": "^1.1.16",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.0",
