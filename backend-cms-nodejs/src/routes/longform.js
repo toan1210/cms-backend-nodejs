@@ -21,6 +21,9 @@ router.get('/:id/edit',LongformControllers.edit);
 router.put('/:id',LongformControllers.update);
 //Phần Xóa
 router.delete('/:id',LongformControllers.delete);
+//Trả về Api
+router.get("/longformapi", LongformControllers.api_longform);
+router.get('/:id',LongformControllers.api_longformdetail);
 
 router.get('/',LongformControllers.index);
 

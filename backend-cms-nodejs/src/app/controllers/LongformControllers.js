@@ -75,6 +75,29 @@ class LongformControllers {
         .then(() =>  res.redirect('back'))
         .catch(next); 
     }
+    //Trả về API 
+    api_longform(req,res,next)
+    {
+        Longform.find({}, function (err, longform) {
+           if(!err)
+           {
+               res.json(longform);
+               return;
+           }
+           else
+           {
+            res.status(400).json({error: 'ERROR'});
+           }
+          });
+    }
+    api_longformdetail(req,res,next)
+    {
+      Longform.findById(req.params.id)
+       .then(longform => {
+           res.json(longform)
+       })
+       .catch(next);
+    }
 
 
 }

@@ -21,6 +21,9 @@ router.get('/:id/edit',StoryControllers.edit);
 router.put('/:id',StoryControllers.update);
 //Phần Xóa
 router.delete('/:id',StoryControllers.delete);
+// Trả về API
+router.get("/storyapi", StoryControllers.api_story);
+router.get('/:id',StoryControllers.api_storydetail);
 
 router.get('/',StoryControllers.index);
 

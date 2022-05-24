@@ -76,6 +76,7 @@ class TraditionalControllers {
         .then(() =>  res.redirect('back'))
         .catch(next); 
     }
+    
     api_traditional(req,res,next)
     {
       Traditional.find({}, function (err, traditional) {
@@ -90,15 +91,15 @@ class TraditionalControllers {
            }
           });
     }
-    // api_traditionaldetail(req,res,next)
-    // {
-    //   console.log(req.params.id);
-    //   Traditional.findById(req.params.id)
-    //    .then(traditional => {
-    //        res.json(traditional)
-    //    })
-    //    .catch(next);
-    // }
+    api_traditionaldetail(req,res,next)
+    {
+      console.log(req.params.id);
+      Traditional.findById(req.params.id)
+       .then(traditional => {
+           res.json(traditional)
+       })
+       .catch(next);
+    }
 
 }
 module.exports = new TraditionalControllers;

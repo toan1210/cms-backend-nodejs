@@ -16,9 +16,11 @@ const TraditionalControllers = require('../app/controllers/traditionalController
 //Phần Thêm Mới
 router.post("/add",upload.single('images'),TraditionalControllers.add);
 router.get("/create", TraditionalControllers.create);
-
+//Trả về API
 router.get("/traditionalapi", TraditionalControllers.api_traditional);
-// router.get('/:id',TraditionalControllers.api_traditionaldetail);
+router.get('/:id',TraditionalControllers.api_traditionaldetail);
+
+
 router.get('/:id/edit',TraditionalControllers.edit);
 router.put('/:id',TraditionalControllers.update);
 router.delete('/:id',TraditionalControllers.delete);

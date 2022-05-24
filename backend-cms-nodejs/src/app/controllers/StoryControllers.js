@@ -70,6 +70,29 @@ class StoryControllers {
         .catch(next); 
     }
 
+    api_story(req,res,next)
+    {
+        Story.find({}, function (err, story) {
+           if(!err)
+           {
+               res.json(story);
+               return;
+           }
+           else
+           {
+            res.status(400).json({error: 'ERROR'});
+           }
+          });
+    }
+    api_storydetail(req,res,next)
+    {
+      console.log(req.params.id);
+      Story.findById(req.params.id)
+       .then(story => {
+           res.json(story)
+       })
+       .catch(next);
+    }
 
 }
 module.exports = new StoryControllers;
