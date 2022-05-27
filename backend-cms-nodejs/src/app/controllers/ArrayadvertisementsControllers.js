@@ -1,6 +1,17 @@
 const Arrayadvertisements = require('../models/Arrayadvertisements');
 const {mutipleMongooseToObject} = require('../../util/moongose')
 const {mongooseToObject} = require('../../util/moongose');
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination:(req,file,cb) => {
+      cb(null,'src/public/images'); 
+    },
+    filename:(req,file,cb) => {
+      console.log(file);
+      cb(null,Date.now() + path.extname(file.originalname)); 
+    }
+  });
+  const upload = multer({storage:storage})
 class ArrayadvertisementsControllers {
     index(req,res,next)
     {      
@@ -14,17 +25,16 @@ class ArrayadvertisementsControllers {
     }
      //Phần Thêm Mới Bài Viết
      add(req, res , next){
-        console.log(req.file);
         const arrayadvertisements = new Arrayadvertisements({
-          images:req.body.images,
-          images1:req.body.images1,
+            images:req.files.images[0].originalname,
+            images1:req.files.images1[0].originalname,
         }) 
         arrayadvertisements.save()
         .then(() => res.redirect('/arrayadvertisements'))
         .catch(error => {
             console.log(error);
            })
-       console.log("arrayadvertisements",arrayadvertisements);
+           console.log("ascascas",req.files.images1[0].originalname);
       }
       create(req,res)
         {

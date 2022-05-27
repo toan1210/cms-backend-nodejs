@@ -12,6 +12,10 @@ const storage = multer.diskStorage({
     }
   });
   const upload = multer({storage:storage})
+
+
+
+  
 const LongformControllers = require('../app/controllers/LongformControllers');
 //Phần Thêm Mới
 router.post("/add",upload.single('images'),LongformControllers.add);
