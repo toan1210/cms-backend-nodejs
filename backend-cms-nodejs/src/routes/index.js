@@ -5,6 +5,7 @@ const longform = require('./longform');
 const story = require('./story');
 const admin = require('./admin');
 const login = require('./login');
+const arrayadvertisements = require('./arrayadvertisements');
 const home = require('./home');
 function route(app)
 {
@@ -15,6 +16,7 @@ function route(app)
     app.use('/admin',admin)
     app.use('/login',login)
     app.use('/home',home)
+    app.use('/arrayadvertisements',arrayadvertisements)
     app.use('/',site)
 }
 module.exports = route;

@@ -25,7 +25,7 @@ class LongformControllers {
         //     data: req.file.filename, 
         //     contentType: 'image/png' 
         //   },
-          summary:req.body.summary,
+        sumary:req.body.sumary,
           content:req.body.content,
         }) 
         longform.save()
