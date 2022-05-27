@@ -1,4 +1,4 @@
-const Arrayadvertisements = require('../models/Longform');
+const Arrayadvertisements = require('../models/Arrayadvertisements');
 const {mutipleMongooseToObject} = require('../../util/moongose')
 const {mongooseToObject} = require('../../util/moongose');
 class ArrayadvertisementsControllers {
@@ -67,21 +67,20 @@ class ArrayadvertisementsControllers {
     //     .catch(next); 
     // }
     //Trả về API 
-    // api_longform(req,res,next)
-    // {
-    //     Longform.find({}, function (err, longform) {
-    //        if(!err)
-    //        {
-    //            res.json(longform);
-    //            return;
-    //        }
-    //        else
-    //        {
-    //         res.status(400).json({error: 'ERROR'});
-    //        }
-    //       });
-    // }
-
+    api_arrayadvertisements(req,res,next)
+    {
+        Arrayadvertisements.find({}, function (err, arrayadvertisements) {
+           if(!err)
+           {
+               res.json(arrayadvertisements);
+               return;
+           }
+           else
+           {
+            res.status(400).json({error: 'ERROR'});
+           }
+          });
+    }
     // api_longformdetail(req,res,next)
     // {
     //   Longform.findById(req.params.id)

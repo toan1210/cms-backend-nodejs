@@ -17,7 +17,7 @@ const Arrayadvertisements = require('../app/controllers/ArrayadvertisementsContr
 router.post("/add",upload.single('images'),Arrayadvertisements.add);
 router.get("/create", Arrayadvertisements.create);
 //Trả về API
-// router.get("/traditionalapi", TraditionalControllers.api_traditional);
+router.get("/arrayadvertisementsapi",Arrayadvertisements.api_arrayadvertisements);
 // router.get('/:id',TraditionalControllers.api_traditionaldetail);
 
 
