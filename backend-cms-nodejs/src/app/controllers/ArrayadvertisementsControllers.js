@@ -25,16 +25,26 @@ class ArrayadvertisementsControllers {
     }
      //Phần Thêm Mới Bài Viết
      add(req, res , next){
+       console.log(req.files);
         const arrayadvertisements = new Arrayadvertisements({
-            images:req.files.images[0].originalname,
-            images1:req.files.images1[0].originalname,
+          news:req.files.news[0].originalname,
+          technology:req.files.technology[0].originalname,
+          economy:req.files.economy[0].originalname,
+          cultural:req.files.cultural[0].originalname,
+          entertain:req.files.entertain[0].originalname,
+          living:req.files.living[0].originalname,
+          video:req.files.video[0].originalname,
+          tourism:req.files.tourism[0].originalname,
+          brandstuff:req.files.brandstuff[0].originalname,
+          fashion:req.files.fashion[0].originalname,
+          sport:req.files.sport[0].originalname,
+          cuisine:req.files.cuisine[0].originalname,
         }) 
         arrayadvertisements.save()
         .then(() => res.redirect('/arrayadvertisements'))
         .catch(error => {
             console.log(error);
            })
-           console.log("ascascas",req.files.images1[0].originalname);
       }
       create(req,res)
         {
