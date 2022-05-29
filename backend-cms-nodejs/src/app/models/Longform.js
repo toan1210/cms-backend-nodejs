@@ -6,6 +6,7 @@ const Longform = new Schema({
     status: { type: String,},
     category: { type: String,},
     date: {type:Date},
+    longform:{type:String},
     images:{type: String},
     sumary:{type:String},
     content:{type:String},

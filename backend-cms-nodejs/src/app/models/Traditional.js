@@ -6,7 +6,7 @@ const Traditional = new Schema({
     status: { type: String,},
     category: { type: String,},
     date: {type:Date},
-    // images:{data:String,contentType: String},
+    traditional:{type:String},
     images:{type: String},
     sumary:{type:String},
     content:{type:String},

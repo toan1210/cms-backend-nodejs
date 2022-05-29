@@ -21,6 +21,7 @@ class LongformControllers {
           category:req.body.category,
           date:req.body.date,
           images:req.file.filename,
+          longform:req.body.longform,
         //   images:{
         //     data: req.file.filename, 
         //     contentType: 'image/png' 

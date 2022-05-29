@@ -22,6 +22,7 @@ class StoryControllers {
         summary:req.body.summary,
         content:req.body.content,
         title:req.body.title,
+        story:req.body.story,
         }) 
         story.save()
         .then(() => res.redirect('/story'))
