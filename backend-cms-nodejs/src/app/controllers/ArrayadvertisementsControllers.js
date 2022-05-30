@@ -25,20 +25,32 @@ class ArrayadvertisementsControllers {
     }
      //Phần Thêm Mới Bài Viết
      add(req, res , next){
+      const storage = multer.diskStorage({
+        destination:(req,file,cb) => {
+          cb(null,'src/public/images'); 
+        },
+        filename:(req,file,cb) => {
+          console.log(file);
+          cb(null,Date.now() + path.extname(file.originalname)); 
+        }
+      });
+      const upload = multer({storage:storage})
+      upload.fields([{name: 'news',maxCount:15},{name:'technology',maxCount:15},{name:'economy',maxCount:15},{name:'cultural',maxCount:15},{name:'entertain',maxCount:15},{name:'living',maxCount:15},{name:'video',maxCount:15},{name:'tourism',maxCount:15},{name:'brandstuff',maxCount:15},{name:'fashion',maxCount:15},{name:'sport',maxCount:15},{name:'cuisine',maxCount:15},
+    ])
        console.log(req.files);
         const arrayadvertisements = new Arrayadvertisements({
-          news:req.files.news[0].originalname,
-          technology:req.files.technology[0].originalname,
-          economy:req.files.economy[0].originalname,
-          cultural:req.files.cultural[0].originalname,
-          entertain:req.files.entertain[0].originalname,
-          living:req.files.living[0].originalname,
-          video:req.files.video[0].originalname,
-          tourism:req.files.tourism[0].originalname,
-          brandstuff:req.files.brandstuff[0].originalname,
-          fashion:req.files.fashion[0].originalname,
-          sport:req.files.sport[0].originalname,
-          cuisine:req.files.cuisine[0].originalname,
+          news:req.files.news[0].filename,
+          technology:req.files.technology[0].filename,
+          economy:req.files.economy[0].filename,
+          cultural:req.files.cultural[0].filename,
+          entertain:req.files.entertain[0].filename,
+          living:req.files.living[0].filename,
+          video:req.files.video[0].filename,
+          tourism:req.files.tourism[0].filename,
+          brandstuff:req.files.brandstuff[0].filename,
+          fashion:req.files.fashion[0].filename,
+          sport:req.files.sport[0].filename,
+          cuisine:req.files.cuisine[0].filename,
         }) 
         arrayadvertisements.save()
         .then(() => res.redirect('/arrayadvertisements'))
