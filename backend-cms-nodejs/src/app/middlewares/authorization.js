@@ -3,7 +3,7 @@ const Admin = require("./../models/Admin");
 module.exports.CheckLogin = async function (req, res, next) {
   try {
     if (!req.cookies || !req.cookies.token) {
-      res.redirect("/");
+      return res.redirect("/");
     }
     var decoded = jwt.verify(req.cookies.token, "mk");
     if (!decoded._id) {
@@ -17,7 +17,7 @@ module.exports.CheckLogin = async function (req, res, next) {
     req.user = user;
     next();
   } catch (error) {
-    res.redirect("/");
+    return res.redirect("/");
     next();
   }
 };
@@ -25,7 +25,7 @@ module.exports.CheckLogin = async function (req, res, next) {
 module.exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.roles)) {
-      return res.redirect("/home");
+      return res.redirect("/");
     }
     next();
   };
