@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-
+const auth = require("./../app/middlewares/authorization");
 const storage = multer.diskStorage({
     destination:(req,file,cb) => {
       cb(null,'src/public/images'); 
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 const Arrayadvertisements = require('../app/controllers/ArrayadvertisementsControllers');
 //Phần Thêm Mới
 router.post("/add",multipleUpload,Arrayadvertisements.add);
-router.get("/create", Arrayadvertisements.create);
+router.get("/create",auth.CheckLogin,auth.restrictTo('admin','user'), Arrayadvertisements.create);
 //Trả về API
 router.get("/arrayadvertisementsapi",Arrayadvertisements.api_arrayadvertisements);
 // router.get('/:id',TraditionalControllers.api_traditionaldetail);
@@ -27,5 +27,5 @@ router.get("/arrayadvertisementsapi",Arrayadvertisements.api_arrayadvertisements
 // router.get('/:id/edit',TraditionalControllers.edit);
 // router.put('/:id',TraditionalControllers.update);
 // router.delete('/:id',TraditionalControllers.delete);
-router.get('/',Arrayadvertisements.index);
+router.get('/',auth.CheckLogin,auth.restrictTo('admin','user'),Arrayadvertisements.index);
 module.exports = router;
