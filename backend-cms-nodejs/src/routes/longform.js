@@ -13,22 +13,22 @@ const storage = multer.diskStorage({
   });
   const upload = multer({storage:storage})
 
-
+  const auth = require("./../app/middlewares/authorization");
 
   
 const LongformControllers = require('../app/controllers/LongformControllers');
 //Phần Thêm Mới
 router.post("/add",upload.single('images'),LongformControllers.add);
-router.get("/create", LongformControllers.create);
+router.get("/create",auth.CheckLogin,auth.restrictTo('admin','user'), LongformControllers.create);
 //Phần sửa 
-router.get('/:id/edit',LongformControllers.edit);
-router.put('/:id',LongformControllers.update);
+router.get('/:id/edit',auth.CheckLogin,auth.restrictTo('admin','user'),LongformControllers.edit);
+router.put('/:id',auth.CheckLogin,auth.restrictTo('admin','user'),LongformControllers.update);
 //Phần Xóa
-router.delete('/:id',LongformControllers.delete);
+router.delete('/:id',auth.CheckLogin,auth.restrictTo('admin','user'),LongformControllers.delete);
 //Trả về Api
 router.get("/longformapi", LongformControllers.api_longform);
 router.get('/:id',LongformControllers.api_longformdetail);
 
-router.get('/',LongformControllers.index);
+router.get('/',auth.CheckLogin,auth.restrictTo('admin','user'),LongformControllers.index);
 
 module.exports = router;

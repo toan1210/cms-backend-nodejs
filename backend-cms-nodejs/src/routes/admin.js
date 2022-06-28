@@ -16,12 +16,12 @@ const upload = multer({ storage: storage });
 const AdminControllers = require("../app/controllers/AdminControllers");
 //Phần Thêm Mới
 router.post("/add", upload.single("images"), AdminControllers.add);
-router.get("/create", AdminControllers.create);
+router.get("/create",auth.CheckLogin,auth.restrictTo('admin','user'), AdminControllers.create);
 //Phần sửa
-router.get("/:id/edit", AdminControllers.edit);
-router.put("/:id", AdminControllers.update);
+router.get("/:id/edit",auth.CheckLogin,auth.restrictTo('admin','user'), AdminControllers.edit);
+router.put("/:id",auth.CheckLogin,auth.restrictTo('admin','user'), AdminControllers.update);
 //Phần Xóa
-router.delete("/:id", AdminControllers.delete);
+router.delete("/:id",auth.CheckLogin,auth.restrictTo('admin','user'), AdminControllers.delete);
 
 router.post(
   "/updateroles",
