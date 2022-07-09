@@ -1,4 +1,5 @@
 const Traditional = require('../models/Traditional');
+const Comment = require('../models/Comment');
 const {mutipleMongooseToObject} = require('../../util/moongose')
 const {mongooseToObject} = require('../../util/moongose');
 class TraditionalControllers {
@@ -100,6 +101,33 @@ class TraditionalControllers {
            res.json(traditional)
        })
        .catch(next);
+    }
+
+    addComment(req, res, next){
+        const newComment = Comment(req.body);
+        newComment.save()
+        .then(() => {
+            console.log("Create new comment SUCCESSFULLY!");
+            res.redirect('/traditional')
+
+        })
+        .catch((err) => {
+            res.status(500).send('Something broke!')
+        })
+    }
+
+    getCommentByPostId(req, res, next){
+        Comment.find({idPost: req.params.idPost})
+        .then(comments => {
+            res.json(comments); 
+        });
+    }
+
+    getAllComments(req, res, next){
+        Comment.find({})
+        .then(comments => {
+            res.json(comments); 
+        });
     }
 
 }
