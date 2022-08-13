@@ -4,7 +4,7 @@ const Comments = new Schema({
   idPost: {type: String},
   username: { type: String },
   content: { type: String },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+  createdAt: { type: String, default: Date.now },
+  updatedAt: { type: String, default: Date.now },
 });
 module.exports = mongoose.model("Comments", Comments);
